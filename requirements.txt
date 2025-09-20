@@ -1,0 +1,6 @@
+gradio
+PyPDF2
+sentence-transformers
+scikit-learn
+langchain-google-genai
+python-dotenv

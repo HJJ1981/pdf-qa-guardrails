@@ -1,0 +1,34 @@
+# Python cache / bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.env
+.venv/
+env/
+venv/
+
+# Environment variables
+*.env
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# macOS / Linux / Windows system files
+.DS_Store
+Thumbs.db
+
+# VSCode / PyCharm project settings
+.vscode/
+.idea/
+
+# Hugging Face Spaces specific
+# (Gradio stores temporary states here during dev)
+gradio_cached_examples/

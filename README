@@ -1,0 +1,132 @@
+# PDF Q&A with Guardrails (Gemini + HuggingFace + FAISS + Gradio)
+
+A simple yet powerful **document question-answering (QA)** application built with:
+
+- **Google Gemini** (`gemini-2.5-pro`) for natural language reasoning  
+- **HuggingFace embeddings** (`all-MiniLM-L6-v2`) for semantic search  
+- **FAISS** for fast vector similarity search  
+- **LangChain** for orchestration  
+- **Gradio** for a clean web interface  
+
+Upload a PDF, ask any question, and get answers grounded in the document context — with clear **guardrails** to indicate whether the answer comes from the PDF, Gemini’s own knowledge, or both.
+
+---
+
+## Features
+- **Context-aware Q&A**: Extracts answers from your PDFs using embeddings and retrieval.  
+- **Hybrid reasoning**: Uses Gemini’s knowledge if the PDF lacks sufficient info.  
+- **Guardrails prompt**: Clearly indicates whether the answer is based on:  
+  - PDF context only  
+  - Gemini’s own knowledge  
+  - Both combined  
+- **Source citation**: Shows which PDF(s) the answer is based on.  
+- **Interactive UI**: Easy-to-use Gradio interface for uploading and querying PDFs.  
+
+---
+
+## Tech Stack
+- **[LangChain](https://www.langchain.com/)** – retrieval orchestration  
+- **[Google Generative AI](https://ai.google.dev/)** – Gemini LLM  
+- **[HuggingFace](https://huggingface.co/)** – sentence-transformers embeddings  
+- **[FAISS](https://faiss.ai/)** – in-memory vector database  
+- **[Gradio](https://gradio.app/)** – web UI  
+- **[PyPDFLoader](https://python.langchain.com/docs/modules/data_connection/document_loaders/pdf/)** – PDF parsing  
+
+---
+
+## Project Structure
+
+```
+PDF-QA-WITH-GEMINI/
+├── app.py                                               # interactive gradio app
+├── requirements.txt                                     # pip dependencies
+├── .env                                                 # API keys (not committed)
+├── assets/                                              # Images and visualizations (Optional)
+├── README                                               # Project documentation
+├── LICENSE                                              # MIT License
+```
+
+## Setup & Installation
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/HJJ1981/pdf-qa-guardrails.git
+cd pdf-qa-guardrails
+```
+
+### 2. Create and activate a virtual environment (recommended)
+
+```bash
+python -m venv venv
+source venv/bin/activate   # macOS/Linux
+venv\Scripts\activate      # Windows
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Add your Google Gemini API key
+
+Create a `.env` file in the root directory:
+
+```bash
+GOOGLE_API_KEY=your_google_gemini_api_key_here
+```
+
+You can get your API key from [Google AI Studio](https://aistudio.google.com/).
+
+---
+
+## Run the app
+
+```bash
+python app.py
+```
+
+The Gradio app will launch locally.
+Open the provided http://127.0.0.1:7860/ link in your browser.
+
+---
+
+## Usage
+
+1. Upload a PDF file.  
+2. Ask a question in natural language. 
+3. The model will:
+    - Retrieve relevant chunks from the PDF.
+    - Generate an answer using Gemini.
+    - Clearly state if the answer comes from the PDF, Gemini’s knowledge, or both.
+    - Cite document sources (if used).
+
+---
+
+## Example
+
+- Upload: *Annual Report*  
+- Question: *"What was the company's net profit in 2023?"*  
+
+## Answer
+
+```
+The company's net profit in 2023 was SGD 120M.  
+Sources: annual_report.pdf
+```
+
+---
+
+## Future Improvements
+
+- Support for multiple PDFs at once  
+- Persistent vector database (e.g., Chroma, Pinecone) 
+- Inline source citations in answers
+- Deployment to HuggingFace Spaces / Streamlit Cloud
+
+---
+
+## License
+
+[MIT License](./LICENSE). Free to use and modify.
