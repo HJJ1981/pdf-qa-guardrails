@@ -1,6 +1,9 @@
-gradio
-PyPDF2
-sentence-transformers
-scikit-learn
-langchain-google-genai
 python-dotenv
+gradio
+langchain
+langchain-community
+langchain-google-genai
+langchain-huggingface
+faiss-cpu
+sentence-transformers
+pypdf
